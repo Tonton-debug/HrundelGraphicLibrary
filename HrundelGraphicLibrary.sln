@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.10.35013.160
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HGL", "HGL\HGL.csproj", "{ED5C691B-8386-44B2-B3F8-5FDAF4A969F4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HGL", "HGL\HGL.csproj", "{ED5C691B-8386-44B2-B3F8-5FDAF4A969F4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HGLTest", "HGLTest\HGLTest.csproj", "{66DA10EF-42F3-4B50-BD8B-3B2F81133AAD}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{ED5C691B-8386-44B2-B3F8-5FDAF4A969F4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{ED5C691B-8386-44B2-B3F8-5FDAF4A969F4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{ED5C691B-8386-44B2-B3F8-5FDAF4A969F4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{66DA10EF-42F3-4B50-BD8B-3B2F81133AAD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{66DA10EF-42F3-4B50-BD8B-3B2F81133AAD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{66DA10EF-42F3-4B50-BD8B-3B2F81133AAD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{66DA10EF-42F3-4B50-BD8B-3B2F81133AAD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
