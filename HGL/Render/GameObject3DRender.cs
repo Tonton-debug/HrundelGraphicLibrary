@@ -12,18 +12,18 @@ namespace HGL.Render
 {
     public class GameObject3DRender : GameRender<GameObject>
     {
-        private ConcurrentBag<GameObject> _gameObjects = new ConcurrentBag<GameObject>();
+        private List<GameObject> _gameObjects = new List<GameObject>();
         public GameObject3DRender(Scene scene):base(scene)
         {
 
         }
         public override void RemoveFromRender(GameObject gameObject)
         {
-            _gameObjects.TryTake(out gameObject);
+            _gameObjects.Remove(gameObject);
         }
         public GameObject FindGameObject(string name)
         {
-            return _gameObjects.ToArray().ToList().Find((obj) => obj.Name.Equals(name));
+            return _gameObjects.Find((obj) => obj.Name.Equals(name));
         }
         public override void AddToRender(GameObject gameObject)
         {

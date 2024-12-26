@@ -15,9 +15,5 @@ namespace HGL.Scenes
             Path = path;
             Name = name;
         }
-        public void Save()
-        {
-            GameResourceManager.Instance.AddResoruce(this);
-        }
     }
 }

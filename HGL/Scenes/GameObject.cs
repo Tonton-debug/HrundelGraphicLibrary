@@ -18,6 +18,10 @@ namespace HGL.Scenes
             Model = gameModel;
             Name = name;
         }
+        public void Destroy()
+        {
+            Model.Destroy();
+        }
 
     }
 }

@@ -16,6 +16,10 @@ namespace HGL.Render.Buffers
         {
             GL.BindBuffer(Target, Id);
         }
+        public void Delete()
+        {
+            GL.DeleteBuffer(Id);
+        }
         public void FillArrayBuffer(float[] data)
         {
             Bind();

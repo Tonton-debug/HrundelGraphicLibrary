@@ -25,6 +25,10 @@ namespace HGL.Render.Buffers
         {
             GL.BindVertexArray(Id);
         }
+        public void Delete()
+        {
+            GL.DeleteVertexArray(Id);
+        }
         public void DisableVertexArray()
         {
             foreach (var item in Data)

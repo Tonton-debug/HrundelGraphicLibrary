@@ -14,7 +14,11 @@ namespace HGL.Render.Model
 {
     public class ModelLoader
     {
-        public static GameModel LoadFromObj(string path, string nameShader)
+        public static GameModel LoadFromObj(string path,string nameShader)
+        {
+            return LoadFromObj(path, GameResourceManager.Instance.LoadResoruce<ShaderProgram>(nameShader));
+        }
+        public static GameModel LoadFromObj(string path, ShaderProgram shader)
         {
             List<Vector3> vertexs = new List<Vector3>();
             List<Vector2> vertexsTex = new List<Vector2>();
@@ -68,9 +72,8 @@ namespace HGL.Render.Model
                     nameTexture = line.Split(" ")[1].Split("/").Last().Split(".")[0];
 
             }
-            Texture texture = GameResourceManager.Instance.LoadResoruce(nameTexture+"T") as Texture;
-            ShaderProgram shaderProgram= GameResourceManager.Instance.LoadResoruce(nameShader) as ShaderProgram;
-            GameModel model3D = new GameModel(gameModelData, shaderProgram, texture, pathObj,new FileInfo(pathObj).Name.Split(".")[0]+"M");
+            Texture texture = GameResourceManager.Instance.LoadResoruce<Texture>(nameTexture);
+            GameModel model3D = new GameModel(gameModelData, shader, texture, pathObj,new FileInfo(pathObj).Name.Split(".")[0]);
             return model3D;
 
         }

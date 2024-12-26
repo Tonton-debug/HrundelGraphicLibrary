@@ -20,6 +20,9 @@ namespace HGL.Render.Model
             Shader = shaderProgram;
             MainTexture = texture;
         }
-
+        public void Destroy()
+        {
+            Data.Destroy();
+        }
     }
 }

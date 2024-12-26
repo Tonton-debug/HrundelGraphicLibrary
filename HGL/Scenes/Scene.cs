@@ -1,5 +1,6 @@
 ﻿using HGL.Render;
 using OpenTK.Mathematics;
+using OpenTK.Windowing.Common;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,26 +11,39 @@ namespace HGL.Scenes
 {
     public abstract class Scene
     {
-        protected GameObject3DRender Render3DModel { get; set; }
+
+        public abstract string Name { get; }
+        public GameObject3DRender Render3DModel { get; protected set; }
         public Camera MainCamera { get; protected set; } = new Camera();
-        public abstract Matrix4 ProjectionMatrix();
+        protected abstract float DegreesProjection {get;}
+        protected abstract float DepthNearProjection { get; }
+        protected abstract float DepthFarProjection {get; }
+        private float _aspect=1;
+        public virtual Matrix4 ProjectionMatrix()
+        {
+            return Matrix4.CreatePerspectiveFieldOfView(MathHelper.DegreesToRadians(45.0f), _aspect, DepthNearProjection, DepthFarProjection);
+        }
         protected abstract void InitializateRenders();
-        protected abstract void OnLoad();
-        protected virtual void Update()
+        public virtual void OnLoad()
+        {
+            InitializateRenders(); 
+        }
+        public virtual void OnResize(FramebufferResizeEventArgs e)
+        {
+            _aspect = (float)e.Width / (float)e.Height;
+           
+        }
+        public virtual void Update(FrameEventArgs args)
         {
 
+        }
+        public virtual void Render()
+        {
+            Render3DModel.RunRender();
         }
         private bool _initializateRenders = false;
         public Scene()
         {
-            InitializateRenders();
-            OnLoad();
-            
-        }
-        public void UpdateRenders()
-        {
-            Update();
-            Render3DModel.RunRender();
         }
     }
 }

@@ -26,6 +26,10 @@ namespace HGL.Other
                 return Matrix4.CreateScale(Scale);
             }
         }
+        public void Move(Vector3 position)
+        {
+            Position += position;
+        }
         public Matrix4 RotateMatrix
         {
             get

@@ -25,6 +25,11 @@ namespace HGL.Render.Model
             _mainData = mainData;
             Initializate();
         }
+        public void Destroy()
+        {
+            _mainBuffer.Delete();
+            _vertexArray.Delete();
+        }
         private void Initializate()
         {
             _mainBuffer = BufferCreator.Init.CreateVertexBuffer(BufferUsageHint.StaticDraw);
